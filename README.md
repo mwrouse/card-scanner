@@ -21,3 +21,16 @@ $(function(){
 						   );
 });
 ```
+
+Or, as something like this: 
+```javascript
+$(function(){
+	var options = { prefix: ';', suffix: '2?' };
+	$(document).cardscanner(options, callback_function);
+});
+
+function callback_function(card_data)
+{
+	console.log('The data on the card is: ' + card_data);
+}
+```
