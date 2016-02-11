@@ -34,3 +34,7 @@ function callback_function(card_data)
 	console.log('The data on the card is: ' + card_data);
 }
 ```
+
+Just be sure to tell define the prefix, suffix, and callback function.
+
+If no suffix is defined, the Enter key will be the suffix.

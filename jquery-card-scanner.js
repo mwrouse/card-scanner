@@ -20,6 +20,7 @@
 		// Array with all the variables this function needs
 		var data = {
 						recording: false,
+						calling_back: false,
 				
 						prefix: options['prefix'], 
 						suffix: options['suffix'],
@@ -37,31 +38,35 @@
 			if (data.recording)
 			{
 				// Watch for the suffix
-				if ((data.suffix).charAt((data.read_suffix).length) == char_val)
+				if (data.suffix != '' && (data.suffix).charAt((data.read_suffix).length) == char_val)
 				{
 					// Record the possible suffix
 					data.read_suffix += char_val;
 					
-					// Check to see if the suffix was completed 
-					if (data.read_suffix == data.suffix)
-					{
-						// Suffix has been completed								
-						// Call the callback function
-						callback(data.read_string);
-						
-						// Reset
-						data.recording = false;
-						data.read_string = '';
-						data.read_prefix = '';
-						data.read_suffix = '';
-					}
+					// Check to see if the suffix was completed
+					data.calling_back = (data.read_suffix == data.suffix);
+					data.recording = !(data.read_suffix == data.suffix);
 				}
 				else 
 				{
+					data.calling_back = (data.suffix == '' && event.which == 13); // Allows enter key to work as suffix if no suffix is defined
+					
 					// Suffix was not correct, add the attempted suffix to the read string (and the newest typed character) and then erase it
-					data.read_string += data.read_suffix + char_val;								
+					data.read_string += data.read_suffix + (event.which != 13) ? char_val : '';								
 					data.read_suffix = '';
 				}
+			}
+			if (data.calling_back)
+			{
+				// Perform the callback stuff 
+				callback(data.read_string);
+				
+				// Reset
+				data.recording = false;
+				data.calling_back = false;
+				data.read_string = '';
+				data.read_prefix = '';
+				data.read_suffix = '';
 			}
 			else 
 			{
