@@ -7,7 +7,9 @@ There are no advanced features so you don't have to worry about over complicatin
 
 
 #Usage
-```javvascript
+Make sure to include jQuery and jquery-card-scanner.js into your website.
+
+```javascript
 $(function(){
 	$(document).cardscanner({
 								prefix: ';',
