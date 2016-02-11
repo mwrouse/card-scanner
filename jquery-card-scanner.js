@@ -15,7 +15,7 @@
 		if (options['suffix'] === undefined) { options['suffix'] = ''; }
 		
 		// Default callback function if needed
-		if (callback === undefined) { callback = function(data){ }; }
+		if (callback === undefined) { callback = function(value){ console.log('Read data from card: ' + value); }; }
 		
 		// Array with all the variables this function needs
 		var data = {
@@ -76,8 +76,6 @@
 				}
 			}
 			
-
-
-		});
+		}); // End keypress
 	};
 })(jQuery);
