@@ -22,7 +22,7 @@ $(function(){
 });
 ```
 
-Or, as something like this: 
+Or, something like this: 
 ```javascript
 $(function(){
 	var options = { prefix: ';', suffix: '2?' };
