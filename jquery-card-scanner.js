@@ -10,7 +10,7 @@
 (function($){
 	$.fn.cardscanner = function(options, callback){
 		// Set Default Options
-		if (options === undefined){ options = {prefix: '', suffix: '', redirect: ''}; }
+		if (options === undefined){ options = {prefix: '', suffix: ''}; }
 		if (options['prefix'] === undefined) { options['prefix'] = ''; }
 		if (options['suffix'] === undefined) { options['suffix'] = ''; }
 		
