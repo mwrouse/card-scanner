@@ -1,40 +1,28 @@
-jQuery Card Scanner 
-====================
+# JavaScript Card Scanner
+This library allows you to use hardware card scanners that simulate keyboard input on your websites.
 
-This is a simple script that allows your website to use a card scanner or an rfid reader to read the data from cards and perform an action on that data.
+There are no advanced features, so you don't have to worry about over complicating things.
 
-There are no advanced features so you don't have to worry about over complicating things, simply tell the script what will proceed the card data (prefix) and come after the card data (suffix), and then what you want to do once card data has been read.
+## Usage
+To get started, you need to know how your card scanner returns data, as in what is the suffix and prefix that it puts around the data read from the card.
 
+This information is important, if you're not sure, try running a sample card with a notepad window open, or read the documentation for your specific card reader.
 
-#Usage
-Make sure to include jQuery and jquery-card-scanner.js into your website.
-
+Once you know this, you can initialize the card scanner monitor script this way:
 ```javascript
-$(function(){
-	$(document).cardscanner({
-								prefix: ';',
-								suffix: '2?'
-							},
-							function(value){
-								console.log('The data read from the card scanner was: ' + value);
-							}
-						   );
+window.CardScannerMonitor({prefix: 'your-prefix-here', suffix: 'your-suffix-here'}, function(data){
+	// Perform what you need to with the data here
+	console.log(data);
 });
 ```
+The function takes two parameters, the first one is an object with the prefix and suffix as elements of the object.
 
-Or, something like this: 
-```javascript
-$(function(){
-	var options = { prefix: ';', suffix: '2?' };
-	$(document).cardscanner(options, callback_function);
-});
+If no suffix is defined, then the Enter key will be used as a suffix.
 
-function callback_function(card_data)
-{
-	console.log('The data on the card is: ' + card_data);
-}
-```
+The second is a function, this function gets performed when the script has read the suffix (all data has been entered). This function should have one parameter, which represents the data read from the card, without the suffix and prefix attached.
 
-Just be sure to tell define the prefix, suffix, and callback function.
+## Example
+[View a CodePen Example]()
 
-If no suffix is defined, the Enter key will be the suffix.
+## License
+Distributed under the MIT License.
