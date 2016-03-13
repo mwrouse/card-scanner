@@ -8,7 +8,7 @@
  * Date.........: March 2016
  *
  * Description..: Monitors a webpage for input from a card scanner, or other similar hardware that
- *                emulates keyboard input
+ *                simulates keyboard input
  */
 (function(){
   var CardScannerMonitor = function(options, callback){
