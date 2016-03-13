@@ -27,4 +27,4 @@ The second is a function, this function gets performed when the script has read 
 Use 'abc' as your prefix, and ';' as your suffix on the demo.
 
 ## License
-Distributed under the MIT License.
+Distributed under the [MIT License](https://raw.githubusercontent.com/mwrouse/card-scanner/master/LICENSE).
