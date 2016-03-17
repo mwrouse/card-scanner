@@ -22,7 +22,7 @@ If no suffix is defined, then the Enter key will be used as a suffix.
 The second is a function, this function gets performed when the script has read the suffix (all data has been entered). This function should have one parameter, which represents the data read from the card, without the suffix and prefix attached.
 
 ## Example
-[View a CodePen Example](http://codepen.io/mwrouse/pen/eZdWzE)
+[View a CodePen Example](http://codepen.io/mwrouse/full/eZdWzE)
 
 Use 'abc' as your prefix, and ';' as your suffix on the demo.
 
